@@ -17,3 +17,24 @@ int main(){
     cout << "\nMin = " << B[5];
     return 0;
 }
+
+void stat(const double x[],int N,double y[6]){
+    double ari ,std,har =0;
+    double geo =1;
+    double max,min =x[0];
+    for(int i=0;i<N;i++){
+        ari += x[i];
+        std += pow(x[i],2);
+        geo *= x[i];
+        har += 1/x[i];
+        if(x[i]>max) max=x[i];
+        if(x[i]<min) min=x[i];
+    }
+    noR=(std/N)-pow((ari/N),2);
+    y[0] = ari/N;
+    y[1] = pow(noR,0.5);
+    y[2] = pow(geo,1/6.0);
+    y[3] = N/har;
+    y[4] = max;
+    y[5] = min;
+}
